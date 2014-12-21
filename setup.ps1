@@ -23,7 +23,7 @@ if(!(Test-Path -Path $TempCygDir -PathType Container)) {
 
 $packagesStr = ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aikeru/sauce/master/packages.txt'))
 $packages = ($packagesStr -split '[\r\n]') |? {$_}
-$packageList = [String]::Join(" ", $packages);
+$packageList = [String]::Join(", ", $packages);
 
 $client = new-object System.Net.WebClient
 $client.DownloadFile($download, "$TempCygDir\setup.exe");
