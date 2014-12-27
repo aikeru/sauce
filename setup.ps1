@@ -34,5 +34,5 @@ Start-Process -wait -FilePath "$TempCygDir\setup.exe" -ArgumentList ("-q -n -l $
 
 "Cygwin should now be installed."
 
-
+.\Add-Font.ps1 -Path ".\Ubuntu Mono for Powerline_0.ttf"
 
