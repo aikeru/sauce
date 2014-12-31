@@ -34,5 +34,22 @@ Start-Process -wait -FilePath "$TempCygDir\setup.exe" -ArgumentList ("-q -n -l $
 
 "Cygwin should now be installed."
 
-./scripts/Add-Font.ps1 -Path ".\assets\Ubuntu Mono for Powerline_0.ttf"
+$gitHubRoot = "https://raw.githubusercontent.com/aikeru/sauce/master/";
+$installFontUrl = $gitHubRoot + "scripts/Add-Font.ps1"
+$fontUrl = $gitHubRoot + "assets/Ubuntu Mono for Powerline_0.ttf"
+
+$client.DownloadFile($installFontUrl, "$TempCygDir\Add-Font.ps1");
+$client.DownloadFile($fontUrl, "$TempCygDir\Ubuntu Mono for Powerline_0.ttf");
+
+iex($TempCygDir + '\Add-Font.ps1 -Path "' + $TempCygDir + '\Ubuntu Mono for Powerline_0.ttf"');
+  
+"Installing Chocolatey..."
+
+iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
+
+"Chocolatey should be installed ..."
+
+choco install nodejs
+
+"Tried to install nodejs from here..."
 
