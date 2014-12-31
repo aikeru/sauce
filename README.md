@@ -8,6 +8,8 @@ My not-so-secret sauce - dot files and setup scripts
 * Install appropriate cygwin (x64 vs x86)
 * Install cygwin packages in packages.txt
 * Install Ubuntu Mono for Powerline font
+* Install chocolatey (for easy installation of other things)
+* Install nodejs
  
 ### Working on/To-Do:
 
