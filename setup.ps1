@@ -51,5 +51,5 @@ iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.p
 
 choco install nodejs
 
-"Tried to install nodejs from here..."
+"Node.js should be installed now..."
 
