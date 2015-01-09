@@ -7,8 +7,9 @@
 
 ########## Variables
 
-dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-#dir=~/sauce                    # dotfiles directory
+#dotfiles directory (source)
+#dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+dir=~/sauce/dotfiles
 olddir=~/sauce_old             # old dotfiles backup directory
 files="bashrc vimrc vim tmux.conf bash_git minttyrc gitconfig"    # list of files/folders to symlink in homedir
 
