@@ -35,6 +35,6 @@ for file in $files; do
 done
 
 echo "Cloning Vundle so you can install your plugins ..."
-git clone https://github.com/gmarik/Vundle.vim.git ~/sauce/.vim/bundle/Vundle.vim 
+git clone https://github.com/gmarik/Vundle.vim.git ~/sauce/dotfiles/.vim/bundle/Vundle.vim 
 
 vim -c $(echo -e ':PluginInstall\n:q\n:q\n')
