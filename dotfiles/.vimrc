@@ -128,6 +128,20 @@ set completeopt-=preview
 Plugin 'marijnh/tern_for_vim'
 Plugin 'tpope/vim-dispatch'
 " Plugin 'nosami/Omnisharp'
+" Asynchronous process manager - used by vim-vebugger
+" :VimProcBang to run command and echo result
+" :VimProcRead to past output of command into current buffer
+" vimproc#open vimproc#system
+Plugin 'Shougo/vimproc.vim'
+" Debugger for GDB, JDB (Java), Mdbg (.NET), PDB (Python), RDebug (Ruby, but
+" not on Windows)
+" :VBGstartGDB a.out
+" :VBGtoggleBreakpointThisLine  Toggle a breakpoint
+" :VBGcontinue  continue [after pause]
+" :VBGeval  evaluate expression/variable
+" :VBGstepOver  step over current line
+" :VBGexecute i = 98    execute expression
+Plugin 'idanarye/vim-vebugger'
 
 call vundle#end()
 
