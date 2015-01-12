@@ -117,7 +117,7 @@ let g:ycm_server_log_level = 'debug'
 " Don't have Scratch window pop up at the top of the screen when using
 " omnicompletion
 " http://stackoverflow.com/questions/15962421/how-can-i-disable-scratch-preview-window
-set completeopt-=preview
+"set completeopt-=preview
 
 " Intellisense-like tab completion ... for node/javascript
 " TernDef   Jump to definition under cursor

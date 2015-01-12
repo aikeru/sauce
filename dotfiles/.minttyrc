@@ -4,4 +4,6 @@ CursorType=block
 FontHeight=12
 Font=Ubuntu Mono for Powerline
 Term=xterm-256color
-FontSmoothing=default
+FontSmoothing=full
+Locale=
+Charset=
