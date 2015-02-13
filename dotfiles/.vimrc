@@ -1,3 +1,13 @@
+" Want to reload this file?
+" :so %
+" Reload .vimrc specifically
+" :so $MYVIMRC
+
+" Turn off lazy redraw
+set nolazyredraw
+" Draw more characters at a time
+set ttyfast
+
 " Don't need compatibility with vi
 " Fixes things like scrolling with arrow keys in cygwin
 set nocompatible
@@ -126,6 +136,7 @@ set completeopt-=preview
 " TernRefs  Show all references to variable/prop under cursor
 " TernRename    Rename the variable under cursor
 Plugin 'marijnh/tern_for_vim'
+" Allows some plugins to use deferred / threading
 Plugin 'tpope/vim-dispatch'
 " Plugin 'nosami/Omnisharp'
 
