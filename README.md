@@ -17,6 +17,7 @@ My not-so-secret sauce - dot files and setup scripts
 * Install dotfiles from the repository
 * Clone/install Vundle
 * Run vim PluginInstall, if this works well enough
+* Adding support for installing on linux
 
 ### Development-specific future features:
 
