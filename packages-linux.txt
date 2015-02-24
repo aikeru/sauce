@@ -1,0 +1,3 @@
+wget
+python
+python-dev
