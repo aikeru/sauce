@@ -11,10 +11,12 @@ My not-so-secret sauce - dot files and setup scripts
 
 ```curl https://raw.githubusercontent.com/aikeru/sauce/master/setup.sh | sudo bash```
 
-* Install appropriate cygwin (x64 vs x86)
-* Install cygwin packages in packages.txt
+### What does this script aim to do?
+
+* (Windows) Install appropriate cygwin (x64 vs x86)
+* (Windows) Install cygwin packages in packages.txt
 * Install Ubuntu Mono for Powerline font
-* Install chocolatey (for easy installation of other things)
+* (Windows) Install chocolatey (for easy installation of other things)
 * Install nodejs
  
 ### Working on/To-Do:
