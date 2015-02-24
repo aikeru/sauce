@@ -3,7 +3,13 @@ sauce
 
 My not-so-secret sauce - dot files and setup scripts
 
+### One-liner for installing cygwin, packages, etc. for Windows:
+
 ```@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aikeru/sauce/master/setup.ps1'))"```
+
+### One-liner for installing (apt-get) packages and dotfiles for debian-based:
+
+```curl https://raw.githubusercontent.com/aikeru/sauce/master/setup.sh | sudo bash```
 
 * Install appropriate cygwin (x64 vs x86)
 * Install cygwin packages in packages.txt
