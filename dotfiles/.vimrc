@@ -41,7 +41,15 @@ set wildignore+=*.zip,*.exe,*.dll,*.pdb,*.jpg,*.jpeg,*.png,*.gif
 " ========== MAPPINGS ==========
 
 map <F2> :NERDTreeTabsToggle<CR>
-map <F12> :YcmCompleter GoToImplementationElseDeclaration<CR>
+map <F12> :call GoToCurrentDefinition()<CR>
+
+function! GoToCurrentDefinition()
+    if (&filetype ==# 'javascript')
+        TernDef
+    elseif (&filetype ==# 'cs')
+        YcmCompleter GoToImplementationElseDeclaration
+    endif
+endfunction
 
 " ========== PLUGINS ===========
 
