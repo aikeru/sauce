@@ -38,3 +38,15 @@ echo "Cloning Vundle so you can install your plugins ..."
 git clone https://github.com/gmarik/Vundle.vim.git ~/sauce/dotfiles/.vim/bundle/Vundle.vim 
 
 vim -c $(echo -e ':PluginInstall\n:q\n:q\n')
+
+platform=`uname`
+if [[ $platform == CYG* ]];
+then
+    npm install -g tern
+else
+    sudo npm install -g tern
+fi
+
+pushd ~/.vim/bundle/tern_for_vim/
+npm install
+popd
