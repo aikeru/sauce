@@ -11,13 +11,14 @@ My not-so-secret sauce - dot files and setup scripts
 
 ```curl https://raw.githubusercontent.com/aikeru/sauce/master/setup.sh | sudo bash```
 
-### What does this script aim to do?
+### What does this project aim to do?
 
 * (Windows) Install appropriate cygwin (x64 vs x86)
 * (Windows) Install cygwin packages in packages.txt
 * Install Ubuntu Mono for Powerline font
 * (Windows) Install chocolatey (for easy installation of other things)
 * Install nodejs
+* Install dotfiles
  
 ### Working on/To-Do:
 
