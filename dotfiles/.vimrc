@@ -70,6 +70,26 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " Integrate with git (and add branch name to airline)
 Plugin 'tpope/vim-fugitive'
 
+" Surround things with stuff like (), [], '', <tags>, etc.
+" ie:
+"   cs"' -- change surrounding " to be '
+"   cs'<q> -- change surrounding ' to be <q></q>
+"   cs]{ -- change [] to {} and add space
+"   cs]} -- change [] to {} no added space
+"   ds" -- delete surrounding "
+"   ds{ -- delete surrounding { and space
+"   yssb or yss) -- wrap entire line with parens
+"   ys2aw"  -- surround 2 words, starting at beginning, with quotes
+"   ys2w"   -- surround 2 words, starting at cursor, with quotes
+"
+" In Visual mode
+"   S<p class="important"> will wrap the selected with <p..></p>
+"   s<p> will wrap without indenting
+Plugin 'tpope/vim-surround'
+
+" Make more stuff (esp things like vim-surround) repeatable with dot . command
+Plugin 'tpope/vim-repeat'
+
 " Show me a pretty color table when I type :XtermColorTable 
 Plugin 'guns/xterm-color-table.vim'
 " Tell me how a symbol gets highlighted when I type :call SyntaxAttr()
