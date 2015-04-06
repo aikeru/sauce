@@ -97,6 +97,9 @@ Plugin 'SyntaxAttr.vim'
 " Vundle package manager for vim
 Plugin 'gmarik/Vundle.vim'
 
+" Gives decent highlighting for Razor, web forms, etc.
+"   Build/etc. features don't seem to work right under cygwin :(
+Plugin 'OrangeT/vim-csharp'
 " Fast, lightweight syntax highlighting for lots of languages
 Plugin 'sheerun/vim-polyglot'
 " React jsx highlighting for vim
