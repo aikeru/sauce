@@ -10,7 +10,7 @@ if($osArch -eq "32-bit") {
     $download = "http://cygwin.com/setup-x86.exe";
     $cygInstallFolder = "c:\cygwin";
 } else {
-    $download = "http://cygwin.com/setup.exe";
+    $download = "http://cygwin.com/setup-x86_64.exe";
     $cygInstallFolder = "c:\cygwin64";
 }
 $TempCygDir = "$env:temp\cygInstall";
