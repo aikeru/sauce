@@ -97,6 +97,16 @@ Plugin 'SyntaxAttr.vim'
 " Vundle package manager for vim
 Plugin 'gmarik/Vundle.vim'
 
+" Integration with typescript-tools server
+Plugin 'clausreinke/typescript-tools.vim'
+" TypeScript syntax and such
+Plugin 'leafgarland/typescript-vim'
+" Make YCM trigger on '.' with typescript, ie: foo.x
+if !exists("g:ycm_semantic_triggers")
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+
 " Fast, lightweight syntax highlighting for lots of languages
 Plugin 'sheerun/vim-polyglot'
 " React jsx highlighting for vim
@@ -132,6 +142,7 @@ Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open=1
 let g:syntastic_json_checkers=['jsonlint']
 au BufRead,BufNewFile *.json set filetype=json
+
 
 " File tree browser
 Plugin 'scrooloose/nerdtree'
@@ -200,6 +211,20 @@ syntax on
 " I want to see vim airline's status bar at the bottom
 set laststatus=2
 
+autocmd FileType text call SetUpTextEditing()
+
+function! SetUpTextEditing()
+    if (&filetype ==# 'text')
+        set wrap
+        set linebreak
+        set nolist
+    endif
+endfunction
+
+set sc
+
+au BufRead,BufNewFile *.ts setlocal filetype=typescript
+autocmd FileType typescript setlocal omnifunc=TSScompleteFunc
 " Use Silver Searcher instead of grep
 "if executable('ag')
 "    " Note we extract the column as well as the file and line number
