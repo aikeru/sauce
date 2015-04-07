@@ -107,6 +107,9 @@ if !exists("g:ycm_semantic_triggers")
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 
+" Gives decent highlighting for Razor, web forms, etc.
+"   Build/etc. features don't seem to work right under cygwin :(
+Plugin 'OrangeT/vim-csharp'
 " Fast, lightweight syntax highlighting for lots of languages
 Plugin 'sheerun/vim-polyglot'
 " React jsx highlighting for vim

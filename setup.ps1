@@ -10,11 +10,12 @@ if($osArch -eq "32-bit") {
     $download = "http://cygwin.com/setup-x86.exe";
     $cygInstallFolder = "c:\cygwin";
 } else {
-    $download = "http://cygwin.com/setup.exe";
+    $download = "http://cygwin.com/setup-x86_64.exe";
     $cygInstallFolder = "c:\cygwin64";
 }
 $TempCygDir = "$env:temp\cygInstall";
-$mirror = "http://www.gtlib.gatech.edu/pub/cygwin/"; 
+#$mirror = "http://www.gtlib.gatech.edu/pub/cygwin/"; 
+$mirror = 'http://mirror.steadfast.net/cygwin/';
 
 # Install Cygwin
 if(!(Test-Path -Path $TempCygDir -PathType Container)) {
