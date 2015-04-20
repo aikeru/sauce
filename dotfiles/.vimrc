@@ -8,6 +8,8 @@ set nolazyredraw
 " Draw more characters at a time
 set ttyfast
 
+"set mouse=a " Enable the mouse
+
 " Don't need compatibility with vi
 " Fixes things like scrolling with arrow keys in cygwin
 set nocompatible
@@ -53,6 +55,13 @@ endfunction
 
 " ========== PLUGINS ===========
 
+" vim-lucius color scheme
+Plugin 'jonathanfilip/vim-lucius'
+
+" MiniBufExpl
+" Does other things, but I mainly use it so I can click to select tabs
+" Plugin 'fholgado/minibufexpl.vim'
+
 " The Silver Searcher (use ag over ack over grep)
 Plugin 'rking/ag.vim'
 
@@ -69,7 +78,8 @@ let g:airline_powerline_fonts = 1
 Plugin 'jistr/vim-nerdtree-tabs'
 " Integrate with git (and add branch name to airline)
 Plugin 'tpope/vim-fugitive'
-
+" Visualize and explore git
+Plugin 'gregsexton/gitv'
 " Surround things with stuff like (), [], '', <tags>, etc.
 " ie:
 "   cs"' -- change surrounding " to be '
@@ -96,6 +106,16 @@ Plugin 'guns/xterm-color-table.vim'
 Plugin 'SyntaxAttr.vim'
 " Vundle package manager for vim
 Plugin 'gmarik/Vundle.vim'
+
+" Integration with typescript-tools server
+Plugin 'clausreinke/typescript-tools.vim'
+" TypeScript syntax and such
+Plugin 'leafgarland/typescript-vim'
+" Make YCM trigger on '.' with typescript, ie: foo.x
+if !exists("g:ycm_semantic_triggers")
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
 
 " Gives decent highlighting for Razor, web forms, etc.
 "   Build/etc. features don't seem to work right under cygwin :(
@@ -135,6 +155,7 @@ Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open=1
 let g:syntastic_json_checkers=['jsonlint']
 au BufRead,BufNewFile *.json set filetype=json
+
 
 " File tree browser
 Plugin 'scrooloose/nerdtree'
@@ -203,6 +224,20 @@ syntax on
 " I want to see vim airline's status bar at the bottom
 set laststatus=2
 
+autocmd FileType text call SetUpTextEditing()
+
+function! SetUpTextEditing()
+    if (&filetype ==# 'text')
+        set wrap
+        set linebreak
+        set nolist
+    endif
+endfunction
+
+set sc
+
+au BufRead,BufNewFile *.ts setlocal filetype=typescript
+autocmd FileType typescript setlocal omnifunc=TSScompleteFunc
 " Use Silver Searcher instead of grep
 "if executable('ag')
 "    " Note we extract the column as well as the file and line number
