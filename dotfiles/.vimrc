@@ -8,6 +8,8 @@ set nolazyredraw
 " Draw more characters at a time
 set ttyfast
 
+"set mouse=a " Enable the mouse
+
 " Don't need compatibility with vi
 " Fixes things like scrolling with arrow keys in cygwin
 set nocompatible
@@ -53,6 +55,13 @@ endfunction
 
 " ========== PLUGINS ===========
 
+" vim-lucius color scheme
+Plugin 'jonathanfilip/vim-lucius'
+
+" MiniBufExpl
+" Does other things, but I mainly use it so I can click to select tabs
+" Plugin 'fholgado/minibufexpl.vim'
+
 " The Silver Searcher (use ag over ack over grep)
 Plugin 'rking/ag.vim'
 
@@ -69,7 +78,8 @@ let g:airline_powerline_fonts = 1
 Plugin 'jistr/vim-nerdtree-tabs'
 " Integrate with git (and add branch name to airline)
 Plugin 'tpope/vim-fugitive'
-
+" Visualize and explore git
+Plugin 'gregsexton/gitv'
 " Surround things with stuff like (), [], '', <tags>, etc.
 " ie:
 "   cs"' -- change surrounding " to be '
