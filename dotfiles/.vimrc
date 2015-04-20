@@ -213,3 +213,9 @@ set laststatus=2
 " Use silver searcher to find the word under the cursor with K
 "xnoremap  K y:<c-u>Ag <C-R>=shellescape(expand(@"),1)<CR>:copen<CR>
 "nnoremap  K :<c-u>Ag <c-r>=shellescape(expand("<cword>"),1)<cr>:copen<cr>
+"
+"
+" If using gvim, set guifont
+if has("gui_running")
+    set guifont=Ubuntu\ Mono\ For\ Powerline\ 13
+endif
