@@ -55,6 +55,18 @@ endfunction
 
 " ========== PLUGINS ===========
 
+" - Syntax for .proj, .props, .targets
+" - build open project with :make
+"   ie: :make /t:rebuild
+"
+Plugin 'heaths/vim-msbuild'
+
+" dbext.vim is like SMSS within vim
+"  
+Plugin 'vim-scripts/dbext.vim'
+
+" shell within vim, use :VimShell or :VimShellTab to open it
+Plugin 'Shougo/vimshell.vim'
 " vim-lucius color scheme
 Plugin 'jonathanfilip/vim-lucius'
 
@@ -77,6 +89,7 @@ let g:airline_powerline_fonts = 1
 " Persist NERDTree across tabs
 Plugin 'jistr/vim-nerdtree-tabs'
 " Integrate with git (and add branch name to airline)
+" Within :Gstatus use U to checkout a file in the list
 Plugin 'tpope/vim-fugitive'
 " Visualize and explore git
 Plugin 'gregsexton/gitv'
@@ -253,4 +266,8 @@ autocmd FileType typescript setlocal omnifunc=TSScompleteFunc
 " If using gvim, set guifont
 if has("gui_running")
     set guifont=Ubuntu\ Mono\ For\ Powerline\ 13
+endif
+
+if filereadable(expand("~/.machinevimrc"))
+    source ~/.machinevimrc
 endif
