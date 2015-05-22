@@ -8,6 +8,8 @@ set nolazyredraw
 " Draw more characters at a time
 set ttyfast
 
+set backspace=2 " Make backspace work like most apps
+
 "set mouse=a " Enable the mouse
 
 " Don't need compatibility with vi
@@ -34,6 +36,7 @@ call vundle#begin()
 
 " Ignore files I will never open with vim
 set wildignore+=*.zip,*.exe,*.dll,*.pdb,*.jpg,*.jpeg,*.png,*.gif
+set wildignore+=*/bin/*,*/node_modules/*
 "let g:ctrlp_custom_ignore = {
             "\ 'dir': '\v[\/]\.(git|hg|svn)$'
             "\ 'file': '\v\.(exe|so|dll|pdb|jpg|zip|gif|jpeg|png)$',
@@ -59,7 +62,24 @@ endfunction
 " - build open project with :make
 "   ie: :make /t:rebuild
 "
-Plugin 'heaths/vim-msbuild'
+" Plugin 'heaths/vim-msbuild'
+
+" Easy note taking in vim
+" :Note - create new buffer and load filetype/syntax
+"   also can use :e, :tabedit, :spit if filename note:<filename>
+"   if empty a new note is created
+" :NoteFromSelectedText (also \en)
+" :Note <text from title> - edit existing note or create new
+" :DeleteNote <text from title> - both of these support tab complete
+" :SearchNotes keyword, :SearchNotes /pattern/, tab complete
+"   search notes without argument searches under the cursor
+" :RecentNotes, :RelatedNotes
+" Fold text via headers (markdown #)
+" gf jump between notes (^-w f to jump to note in split, ^-w gf in tab)
+" ```<type> - embed highlighted code, also with {{{type ...}}}
+" notes are stored by default under ~/.vim/.../vim-notes/misc/notes/user
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 
 " dbext.vim is like SMSS within vim
 "  
@@ -90,6 +110,7 @@ let g:airline_powerline_fonts = 1
 Plugin 'jistr/vim-nerdtree-tabs'
 " Integrate with git (and add branch name to airline)
 " Within :Gstatus use U to checkout a file in the list
+"           use - to add/remove a file from staging
 Plugin 'tpope/vim-fugitive'
 " Visualize and explore git
 Plugin 'gregsexton/gitv'
@@ -139,6 +160,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'mxw/vim-jsx'
 " SCSS highlighting
 Plugin 'cakebaker/scss-syntax.vim'
+
 " Fuzzy file finder
 " <c-p> Open ctrlp
 " <ESC> Close ctrlp
@@ -150,9 +172,10 @@ Plugin 'cakebaker/scss-syntax.vim'
 " horizontal split
 " <c-y> Create a new file and its parent directories
 " <c-z> Mark/unmark multiple files <c-o> opens them
-Plugin 'kien/ctrlp.vim'
+ Plugin 'kien/ctrlp.vim'
 " No maximum number of cached files for ctrlp (stupid massive solutions)
 let g:ctrlp_max_files=0
+
 " Show me indentation
 " <Leader>ig    Toggle showing identation
 " :help indent-guides   to get help on this plugin
@@ -251,6 +274,9 @@ set sc
 
 au BufRead,BufNewFile *.ts setlocal filetype=typescript
 autocmd FileType typescript setlocal omnifunc=TSScompleteFunc
+
+set rtp+=~/.vim/bundle/typescript-tools.vim/
+
 " Use Silver Searcher instead of grep
 "if executable('ag')
 "    " Note we extract the column as well as the file and line number
