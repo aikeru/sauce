@@ -260,6 +260,7 @@ syntax on
 " I want to see vim airline's status bar at the bottom
 set laststatus=2
 
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 autocmd FileType text call SetUpTextEditing()
 
 function! SetUpTextEditing()
