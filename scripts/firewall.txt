@@ -1,0 +1,1 @@
+netsh advfirewall add rule name="WebStorm" dir=in action=allow program="C:\program files (x86)\jetbrains\webstorm 10.0.1\bin\webstorm.exe" enable=yes 

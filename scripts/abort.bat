@@ -1,0 +1,2 @@
+shutdown /a
+abort.bat
