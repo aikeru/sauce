@@ -40,6 +40,8 @@ install.sh
 
 c:\tools\neovim\Neovim\bin\nvim-qt ~/.spacevim
 
+let g:spacevim_plug_home = '~/.vim/plugged'
+let g:spacevim_nvim = 1
 set backspace=2 " Make backspace work like most apps
 set number
 " Tabs should be 2 columns
@@ -49,19 +51,48 @@ set shiftwidth=2
 set expandtab
 set autoindent
 
-map <F2> :NERDTreeTabsToggle<CR>
-map <F12> :call GoToCurrentDefinition()<CR>
-
 function! Layers()
-    Layer 'fzf'
-    Layer 'unite'
-    Layer 'better-defaults'
+	"Layer 'fzf'
+  Layer 'ctrlp'
+	Layer 'unite'
+	Layer 'better-defaults'
+  Layer 'better-motion'
+  Layer 'git'
+  Layer 'deoplete'
+  Layer 'syntax-checking'
 endfunction
 
 function! UserInit()
+  Plug 'hecal3/vim-leader-guide'
+  Plug 'wokalski/autocomplete-flow'
+  " Func argument completion
+  Plug 'Shougo/neosnippet'
+  Plug 'Shougo/neosnippet-snippets'
+
+  let g:deoplete#enable_at_startup = 1
+  let g:neosnippet#enable_completed_snippet = 1
+  let g:autocomplete_flow#insert_paren_after_function = 0
+
+  let g:deoplete#sources#ternjs#types = 1
+  let g:deoplete#sources#ternjs#docs = 1
+
+  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+  let g:deoplete#sources#ternjs#filetypes = [
+    \ 'jsx',
+    \ 'javascript.jsx'
+    \ 'vue'
+    \ ]
+
+  Plug 'mhartington/nvim-typescript'
+
 endfunction
 
 function! UserConfig()
+  "call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
+  nnoremap <silent> <leader> :LeaderGuide '<Space>'<CR>
+  vnoremap <silent> <leader> :LeaderGuideVisual '<Space>'<CR>
 endfunction
+
+
   
 :PlugInstall
