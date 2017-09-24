@@ -1,0 +1,67 @@
+Windows
+
+# Open admin cmd first ...
+powershell
+Set-ExecutionPolicy AllSigned; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+choco install python -y
+choco install ruby -y
+choco install neovim -y
+choco install nvm -y
+nvm install latest
+nvm use <version>
+choco install git -y /NoAutoCrlf
+
+cd ~\
+md ~\.vim\autoload
+$uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+(New-Object Net.WebClient).DownloadFile($uri, $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath("~\.vim\autoload\plug.vim"))
+git clone https://github.com/liuchengxu/space-vim.git .space-vim
+
+exit
+
+md c:\scripts\
+SET PATH=%PATH%;c:\scripts\;c:\tools\neovim\Neovim\bin
+SETX PATH %PATH%;c:\scripts\;c:\tools\neovim\Neovim\bin
+
+pip3 install neovim
+npm install -g tern
+
+start "C:\Program Files\Git\git-bash.exe" --cd-to-home
+
+# vim
+ln -s ~/.space-vim/init.vim ~/.vimrc
+# neovim
+ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+# neovim on windows
+ln -s ~/.space-vim/init.vim ~/AppData/Local/nvim/init.vim
+
+cd ~/.space-vim
+install.sh
+
+c:\tools\neovim\Neovim\bin\nvim-qt ~/.spacevim
+
+set backspace=2 " Make backspace work like most apps
+set number
+" Tabs should be 2 columns
+set tabstop=2
+" When indenting, use 2 columns
+set shiftwidth=2
+set expandtab
+set autoindent
+
+map <F2> :NERDTreeTabsToggle<CR>
+map <F12> :call GoToCurrentDefinition()<CR>
+
+function! Layers()
+    Layer 'fzf'
+    Layer 'unite'
+    Layer 'better-defaults'
+endfunction
+
+function! UserInit()
+endfunction
+
+function! UserConfig()
+endfunction
+  
+:PlugInstall
